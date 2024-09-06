@@ -1,0 +1,95 @@
+.container {
+  height: 100vh; /* Fill the viewport height */
+  background-color: #1b1a1be5;
+  font-family: "SUSE", sans-serif; /* Font 'SUSE' */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+p {
+  margin: 0;
+}
+
+.middle-container {
+  width: 300px;
+  height: 200px;
+  background-color: #1b1a1be5;
+  padding: 1.5rem;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+}
+
+/* Styles for the title */
+.title {
+  font-size: 2rem;
+  color: antiquewhite;
+}
+
+/* Styles for the timer */
+.timer {
+  font-size: 3rem;
+  color: antiquewhite;
+  display: flex;
+  align-items: center; /* Align items vertically center */
+}
+
+.timer input {
+  width: 4rem; /* Adjust width to fit the design */
+  text-align: center;
+  font-size: 3rem;
+  color: antiquewhite;
+  background: none;
+  border: none;
+  outline: none;
+  margin: 0 0.5rem; /* Adjust spacing between inputs */
+}
+
+/* Remove spin buttons */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.controls button {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  background-color: #df8703;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.controls button:hover {
+  background-color: #885200; /* Darker color on hover */
+}
+
+/* Prevent text selection */
+body {
+  user-select: none;
+  margin: 0;
+  padding: 0;
+}
+
+.bar {
+  height: 5px;
+  width: 250px;
+  background-color: #df8703;
+  border-radius: 2.5px;
+  transition: width 0.5s ease; /* Smooth width transition */
+}
+
+
+

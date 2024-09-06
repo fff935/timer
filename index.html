@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>18.1</title>
+  <link rel="stylesheet" href="./fonts/stylesheet.css" />
+  <link rel="stylesheet" href="./style.css" />
+  <script src="timer.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <div class="middle-container">
+      <p class="title">Timer</p>
+      <div class="timer">
+        <input type="number" class="min-input" placeholder="00" min="0" />
+        <p>:</p>
+        <input type="number" class="sec-input" placeholder="00" min="0" max="59" />
+      </div>
+      <div class="controls">
+        <button id="start-stop">Start</button>
+        <button id="reset">Reset</button>
+      </div>
+      <div class="bar"></div>
+    </div>
+  </div>
+</body>
+</html>
