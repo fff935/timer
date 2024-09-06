@@ -10,12 +10,41 @@ document.addEventListener("DOMContentLoaded", function () {
   let intervalId;
   let isRunning = false;
   let initialTime;
-  let step; 
-  let initialBarWidth = 250; 
+  let step;
+  let initialBarWidth = 250;
 
   function formatNumber(number) {
     return number < 10 ? "0" + number : number;
   }
+
+  // Обмеження введення тільки цифр і не більше 2
+  minInput.addEventListener("input", function () {
+    // Обрізаємо значення до 2 цифр, якщо введено більше
+    this.value = this.value.replace(/[^0-9]/g, '').slice(0, 2);
+  });
+
+  secInput.addEventListener("input", function () {
+    // Обрізаємо значення до 2 цифр, якщо введено більше
+    this.value = this.value.replace(/[^0-9]/g, '').slice(0, 2);
+    // Якщо хвилини не введені, автоматично оновлюємо їх до 00
+    if (minInput.value === "" || minInput.value.length === 1) {
+      minInput.value = formatNumber(parseInt(minInput.value) || 0);
+    }
+  });
+
+  // Форматування хвилин на "00" при втраті фокусу, якщо нічого не введено
+  minInput.addEventListener("blur", function () {
+    if (this.value === "" || this.value.length === 1) {
+      this.value = formatNumber(parseInt(this.value) || 0);
+    }
+  });
+
+  // Форматування секунд на "00" при втраті фокусу, якщо нічого не введено
+  secInput.addEventListener("blur", function () {
+    if (this.value === "" || this.value.length === 1) {
+      this.value = formatNumber(parseInt(this.value) || 0);
+    }
+  });
 
   function toggleTimer() {
     if (isRunning) {
@@ -23,9 +52,8 @@ document.addEventListener("DOMContentLoaded", function () {
       startStopButton.textContent = "Start";
     } else {
       // Встановлюємо значення на 0, якщо поля порожні
-      minValue = minInput.value === "" ? 0 : parseInt(minInput.value), minInput.value = "00";;
+      minValue = minInput.value === "" ? 0 : parseInt(minInput.value);
       secValue = secInput.value === "" ? 0 : parseInt(secInput.value);
-      
 
       // Перевіряємо коректність введених даних
       if (isNaN(minValue) || isNaN(secValue) || minValue < 0 || secValue < 0 || secValue >= 60) {
@@ -70,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
     secInput.value = "";
     minInput.placeholder = "00";
     secInput.placeholder = "00";
-    bar.style.width = initialBarWidth + "px"; 
+    bar.style.width = initialBarWidth + "px";
     isRunning = false;
     startStopButton.textContent = "Start";
     startStopButton.style.backgroundColor = "#df8703";
